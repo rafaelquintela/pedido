@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Namoro</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0e4d7;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff6f61;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1.5em;
+            color: #fff;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #ff4c3b;
+        }
+        .flower {
+            position: relative;
+            margin: 50px 0;
+        }
+        .flower::before, .flower::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff6f61;
+            border-radius: 50%;
+            animation: flowerAnimation 2s infinite alternate;
+        }
+        .flower::before {
+            top: -10px;
+            left: 10px;
+        }
+        .flower::after {
+            bottom: -10px;
+            right: 10px;
+        }
+        @keyframes flowerAnimation {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Camila Mendes, você aceita namorar comigo?</h1>
+        <div class="flower"></div>
+        <button id="yesButton">Sim</button>
+        <button id="noButton">Não</button>
+    </div>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+
+        noButton.addEventListener('click', () => {
+            const randomX = Math.floor(Math.random() * (window.innerWidth - 150));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - 50));
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+
+        yesButton.addEventListener('click', () => {
+            alert('Você fez a escolha certa! 💖');
+        });
+    </script>
+</body>
+</html>
